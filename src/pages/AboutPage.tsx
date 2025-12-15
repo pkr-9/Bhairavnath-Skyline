@@ -2,16 +2,20 @@
 import AboutHeader from "../components/about/AboutHeader";
 import OurApproach from "../components/about/OurApproach";
 import LeadershipTeam from "../components/about/LeadershipTeam";
+import CompanyTimeline from "../components/about/CompanyTimeline";
 import OurCertifications from "../components/about/OurCertifications";
 import CallToAction from "../components/homepage/CallToAction";
+import DownloadCenter from "../components/about/DownloadCenter";
 
 export default function AboutPage() {
   return (
     <>
       <AboutHeader />
+      <CompanyTimeline />
       <OurApproach />
       <LeadershipTeam />
       <OurCertifications />
+      <DownloadCenter />
       {/* We can re-use the CTA component from the homepage */}
       <CallToAction />
     </>

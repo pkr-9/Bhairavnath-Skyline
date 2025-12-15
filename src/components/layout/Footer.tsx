@@ -89,10 +89,18 @@ export default function Footer() {
             <ul className="mt-4 space-y-2 text-sm">
               <li>
                 <Link
-                  to="/about"
+                  to="/safety-quality"
                   className="hover:text-gray-900 dark:hover:text-white"
                 >
-                  About Us
+                  Safety & Quality (HSE)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/tenders"
+                  className="hover:text-gray-900 dark:hover:text-white"
+                >
+                  Tenders & Vendors
                 </Link>
               </li>
               <li>
@@ -101,14 +109,6 @@ export default function Footer() {
                   className="hover:text-gray-900 dark:hover:text-white"
                 >
                   Projects
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/careers"
-                  className="hover:text-gray-900 dark:hover:text-white"
-                >
-                  Careers
                 </Link>
               </li>
               <li>
@@ -122,30 +122,47 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Legal */}
           <div>
             <h4
               // REF: Added `text-gray-900`, prefixed `text-gray-200`
               className="font-semibold text-sm text-gray-900 uppercase tracking-wider
                          dark:text-gray-200"
             >
-              Contact
+              Legal
             </h4>
             <ul className="mt-4 space-y-2 text-sm">
               <li>
-                <span className="hover:text-gray-900 dark:hover:text-white">
-                  info@bhairavnath.com
-                </span>
+                <Link
+                  to="/about"
+                  className="hover:text-gray-900 dark:hover:text-white"
+                >
+                  About Us
+                </Link>
               </li>
               <li>
-                <span className="hover:text-gray-900 dark:hover:text-white">
-                  +91 123 456 7890
-                </span>
+                <Link
+                  to="/careers"
+                  className="hover:text-gray-900 dark:hover:text-white"
+                >
+                  Careers
+                </Link>
               </li>
               <li>
-                <span className="hover:text-gray-900 dark:hover:text-white">
-                  Pune, India
-                </span>
+                <Link
+                  to="/PrivacyPolicyPage"
+                  className="hover:text-gray-900 dark:hover:text-white"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/TermsOfServicePage"
+                  className="hover:text-gray-900 dark:hover:text-white"
+                >
+                  Terms of Service
+                </Link>
               </li>
             </ul>
           </div>

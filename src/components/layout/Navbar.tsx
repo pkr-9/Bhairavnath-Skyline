@@ -3,9 +3,8 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import ThemeToggle from "./ThemeToggle";
 
-// REF: Refactored StyledNavLink for light/dark mode
+// StyledNavLink for light/dark mode
 const StyledNavLink = ({
   to,
   children,
@@ -34,19 +33,12 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-
-      // We use the functional form of setState to read the latest state
       setIsScrolled((prevIsScrolled) => {
-        // 1. If we are NOT currently in the scrolled state
         if (!prevIsScrolled) {
-          // We trigger the scrolled state ONLY if we scroll PAST 10px
           return scrollY > 10;
         }
 
-        // 2. If we ARE currently in the scrolled state
         if (prevIsScrolled) {
-          // We only go back to the "not scrolled" state if we scroll
-          // ALL THE WAY back up (e.g., less than 5px)
           return scrollY > 5;
         }
 
@@ -64,8 +56,6 @@ export default function Navbar() {
     <header className="sticky top-0 z-50">
       {/* Main Navigation */}
       <div
-        // REF: Added light mode styles, prefixed dark styles.
-        // REF: Updated shadow for light mode.
         className={`bg-white border-b border-gray-200 
                     dark:bg-gray-950 dark:border-gray-800 
                     transition-all duration-300 ${
@@ -77,25 +67,17 @@ export default function Navbar() {
         <div className="container mx-auto px-6">
           <div className="flex h-20 items-center justify-between">
             <div className="flex items-center gap-12">
-              {/* Logo with elegant styling */}
               <NavLink
                 to="/"
                 className="group flex items-center gap-2 text-2xl font-bold tracking-tight transition-all duration-300"
               >
-                <span
-                  // REF: Added `text-gray-900`, prefixed `text-white`
-                  className="text-gray-900 dark:text-white"
-                >
+                <span className="text-gray-900 dark:text-white">
                   Bhairavnath
                 </span>
-                <span
-                  // REF: Updated text color
-                  className="text-blue-600 dark:text-blue-500"
-                >
+                <span className="text-blue-600 dark:text-blue-500">
                   Skyline
                 </span>
                 <div
-                  // REF: Updated underline color
                   className="h-px w-0 group-hover:w-full bg-blue-600 dark:bg-blue-500
                              transition-all duration-500 absolute bottom-0 left-0"
                 />
@@ -106,19 +88,17 @@ export default function Navbar() {
                 <StyledNavLink to="/">Home</StyledNavLink>
                 <StyledNavLink to="/about">About Us</StyledNavLink>
                 <StyledNavLink to="/careers">Careers</StyledNavLink>
+                <StyledNavLink to="/tenders">Tenders</StyledNavLink>
               </nav>
             </div>
 
             <div className="flex items-center gap-4">
-              {/* Elegant Search Bar (Commented out) */}
-              {/* ... */}
-
               {/* Services Toggle */}
               {isScrolled && (
                 <button
                   onClick={() => setIsRow2Open(!isRow2Open)}
-                  // REF: Refactored toggle button for light/dark
-                  className="rounded-lg p-2.5 text-gray-500
+                  // toggle button for light/dark
+                  className="rounded-lg p-0 text-gray-500
                              hover:bg-gray-100 hover:text-gray-900
                              bg-white ring-1 ring-gray-200
                              transition-all duration-300 
@@ -136,11 +116,9 @@ export default function Navbar() {
                 </button>
               )}
 
-              <ThemeToggle />
               {/* Premium CTA Button */}
               <a
                 href="/contact"
-                // REF: This primary button works well on both themes
                 className="hidden sm:inline-flex items-center justify-center rounded-lg
                          bg-blue-600 px-6 py-2.5 text-sm font-semibold
                          text-white shadow-lg shadow-blue-600/20
@@ -159,10 +137,12 @@ export default function Navbar() {
 
       {/* Service Categories Navigation */}
       <div
-        // REF: Refactored Row 2 for light/dark
-        className={`transition-all duration-500 ease-in-out overflow-hidden 
+        // Row 2 for light/dark
+        className={`transition-all duration-300 ease-out overflow-hidden 
                     bg-gray-50 dark:bg-gray-900 ${
-                      showRow2 ? "max-h-24 opacity-100" : "max-h-0 opacity-0"
+                      showRow2
+                        ? "max-h-24 opacity-100 translate-y-0"
+                        : "max-h-0 opacity-0 -translate-y-2"
                     } ${
           isScrolled
             ? "shadow-xl shadow-gray-900/10 border-b border-gray-200 dark:shadow-black/30 dark:border-b dark:border-gray-800"
@@ -188,9 +168,8 @@ export default function Navbar() {
                 Urban Technology
               </StyledNavLink>
               <StyledNavLink to="/services/all-services">
-                <span className="flex items-center gap-1.5">
+                <span className="flex items-center">
                   All Services
-                  {/* REF: Updated arrow color */}
                   <span className="text-blue-600 dark:text-blue-500">→</span>
                 </span>
               </StyledNavLink>

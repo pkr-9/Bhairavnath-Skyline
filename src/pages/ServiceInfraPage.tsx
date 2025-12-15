@@ -1,27 +1,20 @@
-// import React from "react";
-import ServicePageHeader from "../components/services/ServicePageHeader";
+import ServiceDetailLayout from "../components/services/ServiceDetailLayout";
 import InfrastructureContent from "../components/services/InfrastructureContent";
-import CallToAction from "../components/homepage/CallToAction";
 import FeaturedProjects from "../components/homepage/FeaturedProjects";
 
 export default function ServiceInfraPage() {
   return (
-    <>
-      <ServicePageHeader
-        category="Our Services"
-        title="Core Infrastructure"
-        description="As a leader in heavy construction, we build the large-scale,
-                     foundational projects that power national progress and connectivity."
-        // Using a relevant placeholder image
-        backgroundImage="https://picsum.photos/id/1018/1920/1080"
-      />
-
+    <ServiceDetailLayout
+      serviceId="infrastructure"
+      headerTitle="Core Infrastructure"
+      headerDesc="Building the heavy arteries of the nation—highways, bridges, and tunnels."
+      headerImage="https://picsum.photos/id/1018/1920/1080"
+    >
+      {/* We keep the old content component as the "Overview" introduction */}
       <InfrastructureContent />
-
-      {/* We can re-use the Featured Projects, maybe filtering them later */}
-      <FeaturedProjects />
-
-      <CallToAction />
-    </>
+      <div className="mt-20">
+        <FeaturedProjects />
+      </div>
+    </ServiceDetailLayout>
   );
 }

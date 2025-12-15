@@ -1,129 +1,141 @@
 // src/pages/ProjectDetailPage.tsx
 
-// import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { projectsData } from "../data/projects";
 import CallToAction from "../components/homepage/CallToAction";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Download, Clock, Building } from "lucide-react";
 
 export default function ProjectDetailPage() {
-  // 1. Get the 'slug' from the URL
   const { slug } = useParams();
-
-  // 2. Find the correct project from our data
   const project = projectsData.find((p) => p.slug === slug);
 
-  // 3. Handle project not found
   if (!project) {
     return (
-      // REF: Added light mode bg/text colors
-      <div
-        className="container mx-auto px-6 py-40 text-center
-                   bg-white text-gray-900
-                   dark:bg-gray-950 dark:text-white"
-      >
+      <div className="container mx-auto px-6 py-40 text-center bg-white text-gray-900 dark:bg-gray-950 dark:text-white">
         <h1 className="text-4xl font-bold">Project Not Found</h1>
-        <p
-          // REF: Added light mode text color
-          className="mt-4 text-gray-600 dark:text-gray-400"
-        >
-          We couldn't find the project you were looking for.
-        </p>
-        <Link
-          to="/projects"
-          // REF: This primary button style works well on both themes
-          className="group mt-8 inline-flex items-center justify-center rounded-lg
-                     bg-blue-600 px-6 py-3 text-base font-semibold text-white
-                     hover:bg-blue-500"
-        >
-          <ArrowLeft
-            className="mr-2 h-4 w-4 transition-transform duration-300 
-                       group-hover:-translate-x-1"
-          />
-          Back to All Projects
+        <Link to="/projects" className="mt-8 text-blue-600 hover:underline">
+          Back to Portfolio
         </Link>
       </div>
     );
   }
 
-  // 4. Render the project details
   return (
     <>
-      {/* Project Hero */}
-      {/* REF: This component uses an image with a dark overlay,
-           so its light text works on both themes. No changes needed. */}
-      <section className="relative bg-gray-900 py-32 md:py-48">
-        <div className="absolute inset-0">
-          <img
-            src={project.heroImage}
-            alt={project.title}
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
-        </div>
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+      {/* 1. Hero Section */}
+      <section className="relative h-[60vh] min-h-[500px] w-full bg-gray-900">
+        <img
+          src={project.heroImage}
+          alt={project.title}
+          className="h-full w-full object-cover opacity-60"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full p-6 pb-20">
+          <div className="container mx-auto">
+            <Link
+              to="/projects"
+              className="mb-6 inline-flex items-center text-sm font-semibold text-white/80 hover:text-white"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to All Projects
+            </Link>
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl md:max-w-3xl">
               {project.title}
             </h1>
+            <div className="mt-6 flex flex-wrap gap-4">
+              {/* Dynamic Status Badge */}
+              <span className="inline-flex items-center rounded-full bg-blue-600/90 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-sm">
+                {project.category.replace("-", " ").toUpperCase()}
+              </span>
+              <span className="inline-flex items-center rounded-full bg-white/20 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-sm border border-white/20">
+                {project.location}
+              </span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Project Content */}
-      {/* REF: Added `bg-white`, prefixed `dark:bg-gray-950` */}
-      <section className="bg-white py-20 md:py-28 dark:bg-gray-950">
+      {/* 2. Main Content Grid */}
+      <section className="bg-white py-20 dark:bg-gray-950">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
-            {/* Left Column: Details Table */}
-            <div className="lg:col-span-1">
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
+            {/* LEFT COLUMN: Narrative (8 cols) */}
+            <div className="lg:col-span-8">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+                Project Overview
+              </h2>
+              {/* Using prose for rich text formatting of the case study */}
               <div
-                // REF: Refactored card for light/dark
-                className="rounded-2xl bg-gray-50 border border-gray-200 p-6
-                           dark:bg-gray-900 dark:border-gray-800"
-              >
-                <h3
-                  // REF: Added `text-gray-900`, prefixed `text-white`
-                  className="text-xl font-bold text-gray-900 mb-4 dark:text-white"
-                >
-                  Project Details
-                </h3>
-                <ul className="space-y-3">
-                  {project.details.map((detail) => (
-                    <li key={detail.label} className="flex justify-between">
-                      <span
-                        // REF: Added `text-gray-600`, prefixed `text-gray-400`
-                        className="text-sm font-medium text-gray-600 dark:text-gray-400"
-                      >
-                        {detail.label}:
-                      </span>
-                      <span
-                        // REF: Added `text-gray-900`, prefixed `text-white`
-                        className="text-sm text-gray-900 text-right dark:text-white"
-                      >
-                        {detail.value}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                className="prose prose-lg mt-6 max-w-none text-gray-600 dark:prose-invert dark:text-gray-400"
+                dangerouslySetInnerHTML={{ __html: project.caseStudy }}
+              />
+
+              {/* Image Gallery Placeholder (You can expand this later) */}
+              <div className="mt-12 grid grid-cols-2 gap-4">
+                <img
+                  src="https://picsum.photos/600/400?random=1"
+                  alt="Detail 1"
+                  className="rounded-xl object-cover h-64 w-full"
+                />
+                <img
+                  src="https://picsum.photos/600/400?random=2"
+                  alt="Detail 2"
+                  className="rounded-xl object-cover h-64 w-full"
+                />
               </div>
             </div>
 
-            {/* Right Column: Case Study */}
-            <div className="lg:col-span-2">
-              <h2
-                // REF: Added `text-gray-900`, prefixed `text-white`
-                className="text-3xl font-bold text-gray-900 sm:text-4xl dark:text-white"
-              >
-                Case Study
-              </h2>
-              <div
-                // REF: Refactored prose styles for light/dark
-                className="prose mt-6 text-gray-600 max-w-none 
-                           prose-p:leading-relaxed prose-strong:text-gray-900
-                           dark:prose-invert dark:text-gray-400 dark:prose-strong:text-white"
-                dangerouslySetInnerHTML={{ __html: project.caseStudy }}
-              />
+            {/* RIGHT COLUMN: Technical Sidebar (4 cols) */}
+            <div className="lg:col-span-4">
+              <div className="sticky top-24 rounded-2xl border border-gray-200 bg-gray-50 p-8 shadow-sm dark:border-gray-800 dark:bg-gray-900/50">
+                <h3 className="mb-6 text-xl font-bold text-gray-900 dark:text-white">
+                  Technical Specifications
+                </h3>
+
+                <div className="space-y-6">
+                  {/* Map over project details */}
+                  {project.details.map((detail, index) => (
+                    <div
+                      key={index}
+                      className="flex flex-col border-b border-gray-200 pb-4 last:border-0 last:pb-0 dark:border-gray-800"
+                    >
+                      <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                        {detail.label}
+                      </span>
+                      <span className="mt-1 text-base font-medium text-gray-900 dark:text-white">
+                        {detail.value}
+                      </span>
+                    </div>
+                  ))}
+
+                  {/* Static "Fake" Data for visual density (since we don't have it in DB yet) */}
+                  <div className="flex flex-col border-b border-gray-200 pb-4 dark:border-gray-800">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                      Safe Man-Hours
+                    </span>
+                    <span className="mt-1 flex items-center gap-2 text-base font-medium text-gray-900 dark:text-white">
+                      <Clock className="h-4 w-4 text-green-600" /> 500,000+ LTI
+                      Free
+                    </span>
+                  </div>
+
+                  <div className="flex flex-col border-b border-gray-200 pb-4 dark:border-gray-800">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                      Contract Type
+                    </span>
+                    <span className="mt-1 flex items-center gap-2 text-base font-medium text-gray-900 dark:text-white">
+                      <Building className="h-4 w-4 text-blue-600" /> EPC /
+                      Turnkey
+                    </span>
+                  </div>
+                </div>
+
+                {/* Download Brochure Button */}
+                <button className="mt-8 flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition-all hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/20">
+                  <Download className="h-4 w-4" />
+                  Download Brochure
+                </button>
+              </div>
             </div>
           </div>
         </div>

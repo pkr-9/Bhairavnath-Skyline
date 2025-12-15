@@ -50,7 +50,7 @@ export default function Header() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,_hsl(220_80%_30%_/_0.3),_transparent_70%)] hidden dark:block" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative z-10 -mt-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Content Section */}
           <div className="text-center lg:text-left space-y-8">
@@ -79,7 +79,7 @@ export default function Header() {
               />
             </div>
 
-            <p
+            {/* <p
               // REF: Added `text-gray-600`, prefixed `text-gray-400`
               className="text-lg pt-0 md:text-xl text-gray-600 leading-relaxed max-w-2xl 
                          mx-auto lg:mx-0 dark:text-gray-400"
@@ -87,7 +87,7 @@ export default function Header() {
               From nation-building infrastructure and architectural excellence
               to premium interiors and environmental solutions, we deliver
               integrated excellence across India's construction landscape.
-            </p>
+            </p> */}
 
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-0">
               <Link

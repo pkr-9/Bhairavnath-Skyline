@@ -2,70 +2,56 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-// 1. Define the shape of the context data
+// We removed 'toggleTheme' since there is no button anymore
 interface ThemeContextType {
   theme: string;
-  toggleTheme: () => void;
 }
 
-// 2. Create the context with a default value
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-// 3. Helper function to get the initial theme
-const getInitialTheme = () => {
-  // Check for a saved theme in localStorage
-  if (typeof window !== "undefined") {
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme) {
-      return storedTheme;
-    }
-
-    // If no saved theme, check system preference
-    const systemPrefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    return systemPrefersDark ? "dark" : "light";
-  }
-
-  // Default for server-side rendering or build
-  return "light";
-};
-
-// 4. Define the provider component
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  // 5. FIX: Initialize state using the helper function
-  const [theme, setTheme] = useState(getInitialTheme);
+  const [theme, setTheme] = useState("light");
 
-  // 6. FIX: This effect now *only* applies the class and saves to localStorage
   useEffect(() => {
+    // 1. Target the root element
     const root = window.document.documentElement;
 
-    // Apply/remove the 'dark' class to the <html> element
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
+    // 2. Define the media query for dark mode
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-    // Save the user's choice
-    localStorage.setItem("theme", theme);
-  }, [theme]); // This runs whenever 'theme' changes
+    // 3. Helper to update DOM
+    const applyTheme = (isDark: boolean) => {
+      const newTheme = isDark ? "dark" : "light";
+      setTheme(newTheme);
 
-  // 7. This function is correct
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
+      if (isDark) {
+        root.classList.add("dark");
+      } else {
+        root.classList.remove("dark");
+      }
+    };
+
+    // 4. Apply immediately on mount
+    applyTheme(mediaQuery.matches);
+
+    // 5. Listen for system changes (real-time update)
+    const handleChange = (e: MediaQueryListEvent) => {
+      applyTheme(e.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+
+    // Cleanup listener
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={{ theme }}>{children}</ThemeContext.Provider>
   );
 };
 
-// 8. Custom hook to easily use the theme context (correct)
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (context === undefined) {

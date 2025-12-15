@@ -1,26 +1,45 @@
-// src/components/about/LeadershipTeam.tsx
-
-// import React from "react";
-
-// Team member data - you would replace this
 const team = [
   {
     name: "Prakash Sharma",
     role: "Founder & CEO",
-    imageUrl: "https://picsum.photos/800/600?5",
-    bio: 'Prakash drives the company\'s "nation-building" vision with 30+ years of industry experience.',
+    imageUrl:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+    bio: 'Prakash drives the "nation-building" vision with 30+ years of civil engineering expertise, having led over 50 major infrastructure projects across India.',
   },
   {
     name: "Anita Desai",
     role: "Chief Engineer (Infrastructure)",
-    imageUrl: "https://picsum.photos/800/600?6",
-    bio: "Anita leads our most complex projects, specializing in bridge and tunnel engineering.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+    bio: "Anita leads our technical division, specializing in cable-stayed bridges and tunnel engineering. She holds a Masters in Structural Engineering from IIT Bombay.",
   },
   {
     name: "Rohan Gupta",
     role: "Head of Real Estate",
-    imageUrl: "https://picsum.photos/800/600?7",
-    bio: "Rohan oversees all residential and commercial developments, focusing on sustainable design.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop",
+    bio: "Rohan oversees our residential and commercial portfolio, ensuring 'Aesthetic Mastery' and RERA compliance in every square foot we build.",
+  },
+  {
+    name: "Vikram Malhotra",
+    role: "Director of Operations",
+    imageUrl:
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+    bio: "Responsible for supply chain and logistics, Vikram ensures our 'Design-to-Delivery' promise is met on time, every time.",
+  },
+  {
+    name: "Meera Iyer",
+    role: "Head of Sustainability (HSE)",
+    imageUrl:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop",
+    bio: "Meera enforces our strict Green Norms and Zero-Accident policies, integrating eco-friendly practices into heavy construction.",
+  },
+  {
+    name: "Suresh Patil",
+    role: "Govt. Liaison & Legal",
+    imageUrl:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+    bio: "Suresh manages our government tenders and regulatory approvals, ensuring seamless execution of public infrastructure contracts.",
   },
 ];
 
