@@ -13,7 +13,8 @@ const categories = [
   {
     icon: Palette,
     title: "Hard Finishes",
-    imageUrl: "https://source.unsplash.com/random/800x600?marble-texture",
+    imageUrl:
+      "https://images.unsplash.com/photo-1606744824163-985d376605aa?q=80&w=1032&auto=format&fit=crop",
     items: [
       "Italian marble, anti-skid vitrified",
       "Gypsum, acoustic, & LED-integrated False Ceilings",
@@ -23,7 +24,8 @@ const categories = [
   {
     icon: PaintRoller,
     title: "Soft Finishes",
-    imageUrl: "https://source.unsplash.com/random/800x600?wooden-floor",
+    imageUrl:
+      "https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=580&auto=format&fit=crop",
     items: [
       "Wooden Flooring (Herringbone, chevron patterns)",
       "3D, metallic, & eco-friendly Wallpaper",
@@ -33,7 +35,7 @@ const categories = [
   {
     icon: Smartphone,
     title: "Glass & Smart Solutions",
-    imageUrl: "https://source.unsplash.com/random/800x600?smart-home",
+    imageUrl: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1100&auto=format&fit=crop",
     items: [
       "Toughened Glass (Sliding doors, shower cubicles)",
       "Privacy & solar control Window Films",
@@ -43,7 +45,7 @@ const categories = [
   {
     icon: CookingPot,
     title: "Bespoke Furniture",
-    imageUrl: "https://source.unsplash.com/random/800x600?modern-kitchen",
+    imageUrl: "https://plus.unsplash.com/premium_photo-1670360414483-64e6d9ba9038?q=80&w=870&auto=format&fit=crop",
     items: [
       "Modular Kitchens (Smart storage, quartz tops)",
       "Office Carpentry & Ergonomic workstations",

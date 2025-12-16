@@ -1,5 +1,6 @@
 // src/components/services/ServiceDetailLayout.tsx
 import React, { useState } from "react";
+import RelatedProjects from "./RelatedProjects";
 import { serviceDetails } from "../../data/serviceDetails";
 import ServicePageHeader from "./ServicePageHeader";
 import CallToAction from "../homepage/CallToAction";
@@ -216,6 +217,7 @@ export default function ServiceDetailLayout({
         </div>
       </section>
 
+      <RelatedProjects category={serviceId} />
       <CallToAction />
     </>
   );

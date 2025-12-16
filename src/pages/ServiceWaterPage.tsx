@@ -8,7 +8,7 @@ export default function ServiceWaterPage() {
       serviceId="water"
       headerTitle="Water & Environmental"
       headerDesc="Engineering lifeline projects for water management and flood control."
-      headerImage="https://picsum.photos/1920/1080?water"
+      headerImage="https://images.unsplash.com/photo-1520361098688-a4b9960d394b?q=80&w=872&auto=format&fit=crop"
     >
       <WaterEnvContent />
       <div className="mt-20">

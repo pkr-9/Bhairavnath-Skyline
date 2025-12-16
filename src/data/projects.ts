@@ -143,8 +143,8 @@ export const projectsData: Project[] = [
         category: 'infrastructure',
         status: 'ongoing',
         location: 'Nagpur Region',
-        imageUrl: 'https://images.unsplash.com/photo-1565514020176-db79237b60e7?q=80&w=2000&auto=format&fit=crop',
-        heroImage: 'https://images.unsplash.com/photo-1565514020176-db79237b60e7?q=80&w=2000&auto=format&fit=crop',
+        imageUrl: 'https://plus.unsplash.com/premium_photo-1764692560001-ec7cd92b21ee?q=80&w=1160&auto=format&fit=crop',
+        heroImage: 'https://images.unsplash.com/photo-1720036237334-9263cd28c3d4?q=80&w=870&auto=format&fit=crop',
         details: [
             { label: 'Client', value: 'MIDC' },
             { label: 'Area', value: '500 Acres' },
@@ -216,8 +216,8 @@ export const projectsData: Project[] = [
         category: 'water',
         status: 'ongoing',
         location: 'Chiplun, Konkan',
-        imageUrl: 'https://images.unsplash.com/photo-1595237840801-9252a1762c4c?q=80&w=2000&auto=format&fit=crop',
-        heroImage: 'https://images.unsplash.com/photo-1595237840801-9252a1762c4c?q=80&w=2000&auto=format&fit=crop',
+        imageUrl: 'https://images.unsplash.com/photo-1624139620784-24cda4498d51?q=80&w=812&auto=format&fit=crop',
+        heroImage: 'https://images.unsplash.com/photo-1677928503545-b2ff1c369d3a?q=80&w=870&auto=format&fit=crop',
         details: [
             { label: 'Length', value: '3.5 KM' },
             { label: 'Height', value: '8 Meters' },
@@ -235,8 +235,8 @@ export const projectsData: Project[] = [
         category: 'urban-tech',
         status: 'completed',
         location: 'Pune City',
-        imageUrl: 'https://images.unsplash.com/photo-1570126618953-d43713a22950?q=80&w=2000&auto=format&fit=crop',
-        heroImage: 'https://images.unsplash.com/photo-1570126618953-d43713a22950?q=80&w=2000&auto=format&fit=crop',
+        imageUrl: 'https://images.unsplash.com/photo-1646316861452-9ac81aa6b504?q=80&w=870&auto=format&fit=crop',
+        heroImage: 'https://images.unsplash.com/photo-1684789007864-aa316b522a3b?q=80&w=870&auto=format&fit=crop',
         details: [
             { label: 'Quantity', value: '50 Units' },
             { label: 'Features', value: 'CCTV, USB Charging, WiFi' },
@@ -251,8 +251,8 @@ export const projectsData: Project[] = [
         category: 'urban-tech',
         status: 'upcoming',
         location: 'Mumbai-Pune Hwy',
-        imageUrl: 'https://images.unsplash.com/photo-1563229676-e41c4639e4a3?q=80&w=2000&auto=format&fit=crop',
-        heroImage: 'https://images.unsplash.com/photo-1563229676-e41c4639e4a3?q=80&w=2000&auto=format&fit=crop',
+        imageUrl: 'https://images.unsplash.com/photo-1752742111841-f490c48aa668?q=80&w=1032&auto=format&fit=crop',
+        heroImage: 'https://plus.unsplash.com/premium_photo-1685148902854-9b9bb49fff08?q=80&w=1032&auto=format&fit=crop',
         details: [
             { label: 'Size', value: '40x20 ft Screens' },
             { label: 'Tech', value: 'Remote Content Mgmt' },

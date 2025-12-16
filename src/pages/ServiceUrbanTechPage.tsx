@@ -7,7 +7,7 @@ export default function ServiceUrbanTechPage() {
       serviceId="urban-tech"
       headerTitle="Urban Tech & Ads"
       headerDesc="Smart city solutions and next-gen digital advertising infrastructure."
-      headerImage="https://picsum.photos/1920/1080?city"
+      headerImage="https://images.unsplash.com/photo-1752742111841-f490c48aa668?q=80&w=1032&auto=format&fit=crop"
     >
       <UrbanTechContent />
     </ServiceDetailLayout>

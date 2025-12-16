@@ -8,7 +8,7 @@ export default function ServiceRealEstatePage() {
       serviceId="real-estate"
       headerTitle="Building & Real Estate"
       headerDesc="Developing high-rise ecosystems for modern living and working."
-      headerImage="https://picsum.photos/1920/1080?building"
+      headerImage="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=774&auto=format&fit=crop"
     >
       <RealEstateContent />
       <div className="mt-20">
